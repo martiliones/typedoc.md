@@ -41,6 +41,88 @@ To use the plugin, simply specify the `plugin` option when running the `typedoc`
   }
   ```
 
+## Customization
+
+```ts
+/**
+ * Exposes the current version of Vue.
+ *
+ * @path Global Api
+ */
+export version = string
+
+/**
+ * Creates an application instance.
+ *
+ * @path Global Api/Application
+ */
+export function createApp(/* ... */): App
+
+/**
+ * Creates an application instance in SSR Hydration mode.
+ *
+ * @path Global Api/Application
+ */
+export function createSSRApp(/* ... */): App
+```
+
+<table>
+<tr>
+<td>
+  
+```ts
+/**
+ * Exposes the current version of Vue.
+ *
+ * @path Global Api
+ */
+export version = string
+
+/**
+ * Creates an application instance.
+ *
+ * @path Global Api/Application
+ */
+export function createApp(/* ... */): App
+
+/**
+ * Creates an application instance in SSR Hydration mode.
+ *
+ * @path Global Api/Application
+ */
+export function createSSRApp(/* ... */): App
+```
+
+</td>
+<td>
+    
+```bash
+.
+├── Global Api/
+│   ├── README.md (version)
+│   └── Application.md (createSSRApp)
+└── Advanced.md (h)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+
+</td>
+</tr>
+</table>
 ## License
 
 MIT - [martiliones](https://github.com/martiliones)
