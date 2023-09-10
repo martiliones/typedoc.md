@@ -9,7 +9,7 @@
   typedoc.md
 </h1>
 
-**Typedoc.md** is a powerful plugin inspired by Vue's API documentation style, it generates Markdown documentation using types and comment descriptions from `.ts` and `.d.ts` files.
+**Typedoc.md** is a powerful plugin inspired by Vue's API documentation style, it generates Markdown API Reference using types and comment descriptions from `.ts` and `.d.ts` files.
 
 You can use it to create Markdown files for:
 - 🔧 **Static Site Generators**: Vuepress, Jekyll, Hugo etc.
@@ -41,73 +41,44 @@ To use the plugin, simply specify the `plugin` option when running the `typedoc`
   }
   ```
 
-## Customization
+## Structure
 
-```ts
-/**
- * Exposes the current version of Vue.
- *
- * @path Global Api
- */
-export version = string
+The plugin _does NOT_ automatically categorize declarations by kind (such as Classes, Functions, Enums, etc.). Instead, you **must** manually group them based on their logical relationships.
 
-/**
- * Creates an application instance.
- *
- * @path Global Api/Application
- */
-export function createApp(/* ... */): App
+### `@path`
 
-/**
- * Creates an application instance in SSR Hydration mode.
- *
- * @path Global Api/Application
- */
-export function createSSRApp(/* ... */): App
-```
+To specify which file or directory each declaration should go in, use the `@path` tag:
 
 <table>
 <tr>
 <td>
   
 ```ts
-/**
- * Exposes the current version of Vue.
- *
+/**                                                               
  * @path Global Api
  */
 export version = string
 
 /**
- * Creates an application instance.
- *
- * @path Global Api/Application
- */
-export function createApp(/* ... */): App
-
-/**
- * Creates an application instance in SSR Hydration mode.
- *
  * @path Global Api/Application
  */
 export function createSSRApp(/* ... */): App
+
+/**
+ * @path Advanced
+ */
+export function h(/* ... */): VNode
 ```
 
 </td>
 <td>
-    
+
 ```bash
 .
 ├── Global Api/
-│   ├── README.md (version)
-│   └── Application.md (createSSRApp)
-└── Advanced.md (h)
-
-
-
-
-
-
+│   ├── README.md     
+│   └── Application.md
+└── Advanced.md       
 
 
 
@@ -123,6 +94,71 @@ export function createSSRApp(/* ... */): App
 </td>
 </tr>
 </table>
-## License
 
-MIT - [martiliones](https://github.com/martiliones)
+Notice that if you use the `@path` tag that matches a previously used directory name, a `README.md` will be created within that directory. For a specific file placement, add `.md` to the path.
+
+Let's see how the structure has changed after appending the extension to the `version`'s path:
+
+<table>
+<tr>
+<td>
+  
+```ts
+/**                                                             
+ * @path Global Api.md
+ */
+export version = string
+
+// ...
+```
+
+</td>
+<td>
+
+```diff
+  .
+  ├── Global Api/
+- │   ├── README.md     
+  │   └── Application.md
+  ├── Advanced.md       
++ └── Global Api.md    
+
+```
+
+</td>
+</tr>
+</table>
+
+### `@module`
+
+To declare shared options for file's declarations, you can use `@module` tag in the comment on top of the file. 
+
+For example, if you want to keep all the functions from `utils.ts` together in one file you can specify `@path` in the top-level comment:
+
+```ts
+/**
+ * @module
+ *
+ * @path Utilities
+ */
+
+/**
+ * This declaration will be placed under 'Utilities'
+ */
+export function isRef()
+
+/**
+ * And so will this one 
+ */
+export function unref()
+```
+
+### `@ignore`
+
+This tag marks declarations you want to exclude from documentation.
+
+<h1></h1>
+
+<p align="center">
+🌸 Have a nice day!
+</p>
