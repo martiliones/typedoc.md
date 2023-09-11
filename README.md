@@ -58,7 +58,7 @@ To specify which file or directory each declaration should go in, use the `@path
 <td>
   
 ```ts
-/**                                                               
+/**                                                             
  * @path Global Api
  */
 export version = string
@@ -108,7 +108,7 @@ Let's see how the structure has changed after appending the extension to the `ve
 <td>
   
 ```ts
-/**                                                             
+/**                                                           
  * @path Global Api.md
  */
 export version = string
@@ -196,10 +196,11 @@ The content of the tags is copied exactly as it is, without any special characte
  * Exposes the current version of _Vue_
  *
  * @details
- * No parameters needed because it is a constant
+ * No parameters needed because it is
+ * a constant
  *
  * @example
- * This code will print '3.3.4' in the console  
+ * This code will print '3.3.4' in the console
  *
  * ```js
  * import { version } from 'vue'
@@ -225,7 +226,8 @@ Exposes the current version of _Vue_
 
 - **Details**
 
-  No parameters needed because it is a constant
+  No parameters needed because it is
+  a constant
 
 - **Example**
 
