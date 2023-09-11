@@ -137,7 +137,8 @@ For example, if you want to keep all the functions from `utils.ts` together in o
 
 ```ts
 /**
- * All the tags from this comment will be applied to every exported declaration. You can override them in declaration's comment
+ * All the tags from this comment will be applied to every exported declaration.
+ * You can override them in declaration's comment
  *
  * @module
  * @path Utilities
