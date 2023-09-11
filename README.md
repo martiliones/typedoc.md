@@ -146,7 +146,7 @@ For example, if you want to keep all the functions from `utils.ts` together in o
  */
 
 /**
- * This declaration is placed under 'Utilities'.   
+ * This declaration is placed under 'Utilities'    
  */
 export function isRef(r: Ref): r is Ref
 
@@ -181,7 +181,7 @@ This tag marks declarations you want to exclude from documentation.
 
 ## Description
 
-The content of all the tags below is copied exactly as it is, without any special character escaping. This means you can utilize all Markdown features in your JSDoc comments:
+The content of the tags is copied exactly as it is, without any special character escaping. This means you can utilize all Markdown features in your JSDoc comments:
 
 <table>
 <tr>
@@ -189,7 +189,10 @@ The content of all the tags below is copied exactly as it is, without any specia
   
 ```ts
 /**
- * Exposes the current version of _Vue_.
+ * Exposes the current version of _Vue_
+ *
+ * @details
+ * No parameters needed because it is a constant
  *
  * @example
  * This code will print '3.3.4' in the console  
@@ -212,7 +215,11 @@ export version = string
 
 ### version
 
-Exposes the current version of _Vue_.
+Exposes the current version of _Vue_
+
+- **Details**
+
+  No parameters needed because it is a constant
 
 - **Example**
 
@@ -227,6 +234,8 @@ Exposes the current version of _Vue_.
 </td>
 </tr>
 </table>
+
+Please note that typedoc.md does NOT generate documentation from `@param` tag. Instead, you have to manually describe your parameters in the `@details` section.
 
 <h1></h1>
 
