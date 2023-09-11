@@ -15,6 +15,10 @@ You can use it to create Markdown files for:
 - 🔧 **Static Site Generators**: Vuepress, Jekyll, Hugo etc.
 - 📚 **Knowledge Base Systems**: GitHub/Lab Wiki, Readme.io etc.
 
+## Examples
+
+Before going to know how deep does the rabbit hole go, you might want to check out [_examples_](https://github.com/martiliones/typedoc.md/blob/master/examples).
+
 ## Installation
 
 To use **Typedoc.md**, you can install it using any Node.js package manager from the npm registry. Additionally, you need to have Typedoc installed:
@@ -186,7 +190,7 @@ The content of the tags is copied exactly as it is, without any special characte
 <table>
 <tr>
 <td>
-  
+
 ```ts
 /**
  * Exposes the current version of _Vue_
@@ -206,6 +210,8 @@ The content of the tags is copied exactly as it is, without any special characte
  * @path Global Api
  */
 export version = string
+
+// ...
 ```
 
 </td>
@@ -235,7 +241,7 @@ Exposes the current version of _Vue_
 </tr>
 </table>
 
-Please note that typedoc.md does NOT generate documentation from `@param` tag. Instead, you have to manually describe your parameters in the `@details` section.
+Please note that typedoc.md does NOT generate documentation from `@param` and `@return` tags. Instead, you have to manually describe your parameters and return values in the `@details` section.
 
 <h1></h1>
 
