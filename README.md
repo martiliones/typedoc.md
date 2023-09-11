@@ -135,26 +135,45 @@ To declare shared options for file's declarations, you can use `@module` tag in 
 
 For example, if you want to keep all the functions from `utils.ts` together in one file you can specify `@path` in the top-level comment:
 
+<table>
+<tr>
+<td>
+
 ```ts
 /**
  * @module
- *
- * All the tags from this comment will be applied to every exported declaration.
- * You can override them in declaration's comment.
- *
  * @path Utilities
  */
 
 /**
- * This declaration will be placed under 'Utilities'.
+ * This declaration is placed under 'Utilities'.   
  */
-export function isRef<T>(r: Ref<T> | unknown): r is Ref<T>
+export function isRef(r: Ref): r is Ref
 
 /**
- * And so will this one.
+ * And so is this one.
  */
-export function unref<T>(ref: T | Ref<T>): T
+export function unref<T>(ref: Ref<T>): T
 ```
+
+</td>
+<td>
+
+## Utilities
+
+### isRef
+
+This declaration is placed under 'Utilities'.  
+
+### unref
+
+And so is this one.
+
+<br><br><br>
+
+</td>
+</tr>
+</table>
 
 ### `@ignore`
 
@@ -181,7 +200,7 @@ The content of all the tags below is copied exactly as it is, without any specia
  * console.log(version)
  * ```
  *
- * @path Global Api.md
+ * @path Global Api
  */
 export version = string
 ```
@@ -189,7 +208,7 @@ export version = string
 </td>
 <td>
 
-## Global Api
+## Global Api: General
 
 ### version
 
