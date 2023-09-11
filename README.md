@@ -137,20 +137,21 @@ For example, if you want to keep all the functions from `utils.ts` together in o
 
 ```ts
 /**
- * @module
+ * All the tags from this comment will be applied to every exported declaration. You can override them in declaration's comment
  *
+ * @module
  * @path Utilities
  */
 
 /**
- * This declaration will be placed under 'Utilities'
+ * This declaration will be placed under 'Utilities'.
  */
-export function isRef()
+export function isRef<T>(r: Ref<T> | unknown): r is Ref<T>
 
 /**
- * And so will this one 
+ * And so will this one.
  */
-export function unref()
+export function unref<T>(ref: T | Ref<T>): T
 ```
 
 ### `@ignore`
