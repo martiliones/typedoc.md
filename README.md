@@ -160,6 +160,55 @@ export function unref<T>(ref: T | Ref<T>): T
 
 This tag marks declarations you want to exclude from documentation.
 
+## Description
+
+The content of all the tags below is copied exactly as it is, without any special character escaping. This means you can utilize all Markdown features in your JSDoc comments:
+
+<table>
+<tr>
+<td>
+  
+```ts
+/**
+ * Exposes the current version of _Vue_.
+ *
+ * @example
+ * This code will print '3.3.4' in the console  
+ *
+ * ```js
+ * import { version } from 'vue'
+ *
+ * console.log(version)
+ * ```
+ *
+ * @path Global Api.md
+ */
+export version = string
+```
+
+</td>
+<td>
+
+## Global Api
+
+### version
+
+Exposes the current version of _Vue_.
+
+- **Example**
+
+  This code will print '3.3.4' in the console
+
+  ```js
+  import { version } from 'vue'       
+
+  console.log(version)
+  ```
+
+</td>
+</tr>
+</table>
+
 <h1></h1>
 
 <p align="center">
